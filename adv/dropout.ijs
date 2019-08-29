@@ -2,13 +2,21 @@ Note 0
 Copyright (C) 2017 Jonathan Hough. All rights reserved.
 )
 
+NB. Implementation of a Dropout Layer. Dropout Layer can 
+NB. be placed after other layers to allow backpropagation
+NB. updates to only a random percentage fo the number of
+NB. nodes in the previous layer, as a form of regularization.
 
 coclass 'Dropout'
-coinsert 'NN'
+coinsert 'NNLayer'
 
 create=: 3 : 0
+if. a: -: y do. 
+  ''
+else.
 prob=: y
 'Invalid probability set.' assert (prob >: 0) *. prob<:1
+end.
 type=: 'Dropout'
 )
 
